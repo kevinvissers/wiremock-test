@@ -28,7 +28,7 @@ jobs:
       - name: Hello world
         run: echo "Hello World"
       - name: setup mock
-        run: curl --data-binary "@hello.json" http://localhost:8080/__admin/mapping
+        run: curl --data-binary "hello.json" http://localhost:8080/__admin/mapping
       # Runs a set of commands using the runners shell
       - name: Get config
         run: curl http://localhost:8080/__admin/mappings
