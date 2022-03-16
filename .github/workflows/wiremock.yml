@@ -27,6 +27,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Hello world
         run: echo "Hello World"
+      - name: setup mock
+        run: curl --data-binary "@hello.json" http://localhost:8080/__admin/mapping
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Get config
         run: curl http://localhost:8080/__admin/mappings
+      - name: Get hello
+        run: curl -i http://localhost:8080/hello
