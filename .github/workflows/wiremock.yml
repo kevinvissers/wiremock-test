@@ -29,8 +29,11 @@ jobs:
         run: echo "Hello World"
       - name: setup mock
         run: curl --data-binary "hello.json" http://localhost:8080/__admin/mapping
+      - name: pogin 2
+        run: curl -X POST --data '{ "request": { "url": "/get/this", "method": "GET" }, "response": { "status": 200, "body": "Here it is!\n" }}' http://localhost:8080/__admin/mappings/new
+        
       # Runs a set of commands using the runners shell
       - name: Get config
         run: curl http://localhost:8080/__admin/mappings
       - name: Get hello
-        run: curl -i http://localhost:8080/hello
+        run: curl -i http://localhost:8080/get/this
